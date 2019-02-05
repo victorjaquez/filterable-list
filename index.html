@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css"
+    />
+    <title>Contacts</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="center-align">Contacts</h1>
+      <input type="text" id="filter-input" placeholder="Search contacts..." />
+      <ul class="collection with-header" id="names">
+        <li class="collection-header">
+          <h5>A</h5>
+        </li>
+        <li class="collection-item">
+          <a href="#">Abraham</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Adan</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Allen</a>
+        </li>
+        <li class="collection-header">
+          <h5>B</h5>
+        </li>
+        <li class="collection-item">
+          <a href="#">Beto</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Bobby</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Bradley</a>
+        </li>
+        <li class="collection-header">
+          <h5>C</h5>
+        </li>
+        <li class="collection-item">
+          <a href="#">Carrie</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Celso</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Cess</a>
+        </li>
+        <li class="collection-header">
+          <h5>D</h5>
+        </li>
+        <li class="collection-item">
+          <a href="#">David</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Derek</a>
+        </li>
+        <li class="collection-item">
+          <a href="#">Donny</a>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      // Get input element
+      let filterInput = document.getElementById("filter-input");
+      // Add event listener
+      filterInput.addEventListener("keyup", filterNames);
+
+      function filterNames() {
+        // Get value of input
+        let filterValue = document
+          .getElementById("filter-input")
+          .value.toUpperCase();
+        // Get names ul
+        let ul = document.getElementById("names");
+        // Get lis from ul
+        let li = ul.querySelectorAll("li.collection-item");
+        // Loop through collection-item lis
+        li.forEach(item => {
+          let a = item.getElementsByTagName("a")[0];
+          // If matched
+          if (a.innerHTML.toUpperCase().indexOf(filterValue) > -1)
+            item.style.display = "";
+          else item.style.display = "none";
+        });
+      }
+    </script>
+  </body>
+</html>
